@@ -5,18 +5,15 @@
 #include "fstream"
 #include "iostream"
 #include "list"
-
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "RWTxtFile.generated.h"
 
-/**
- * 
- */
+using namespace std;
+
 UCLASS()
 class TEST_TXT_API URWTxtFile : public UBlueprintFunctionLibrary
 {
 	private:
-		//list<float> *ilist = new list<float>(); 
 
 	GENERATED_BODY() public:
 
@@ -34,6 +31,7 @@ class TEST_TXT_API URWTxtFile : public UBlueprintFunctionLibrary
 
 		UFUNCTION(BlueprintPure, Category = "Custom", meta = (Keywords = "CarregarTexto"))
 			static void CarregarTexto(FString FileNameE, FVector&VetorLegal);
-	
-	
+		
+		UFUNCTION(BlueprintPure, Category = "Custom", meta = (Keywords = "LerTexto"))
+			static void LerTexto(FString FileNameD, FVector&Lugar);
 };

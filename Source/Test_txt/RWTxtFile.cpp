@@ -29,18 +29,70 @@ bool URWTxtFile::LoadArray(FString& FilenameD,TArray<uint8> ArrayB)
 void URWTxtFile::CarregarTexto(FString FileNameE,  FVector&VetorLegal)
 {
 	//Funciona
-	/*
+	//IMPORTANTE: TEM QUE DEIXAR UM ESPAÇO NO FINAL DO ARQUIVO, CASO CONTRÁRIO O PROGRAMA
+	//PERDE A ÚLTIMA COORDENADA.
 	using namespace std;
+	list<float> *lista = new list <float>();
 	float numero;
+	float numero1;
 	float numero2;
 	float numero3;
+	int erro = 0;
+	int tamanho = 0;
+	numero = 0.0;
+	numero1 = 0.0;
+	numero2 = 0.0;
+	numero3 = 0.0;
 	FVector Vetor = FVector(0.0f, 0.0f, 0.0f);
-	ofstream output;
-	output.open("NewLocation.txt");
-	output << 121.1 << " " << 122.2 << " " << 123.3;
-	output.close();
 	ifstream input;
-	input.open ("NewLocation.txt");
+	input.open("C:\\Users\\USP\\Documents\\GitHub\\Txt\\Location.txt");
+	input >> numero;
+	if (input.good()) {
+		numero1 = numero;
+	}
+	else erro = 1;
+	input >> numero;
+	if (input.good()) {
+		numero2 = numero;
+	}
+	else erro = 1;
+	input >> numero;
+	if (input.good()) {
+		numero3 = numero;
+	}
+	else erro = 1;
+	if (erro == 0) {
+		Vetor.X = numero1;
+		Vetor.Y = numero2;
+		Vetor.Z = numero3;
+	}
+	VetorLegal = Vetor;
+	while (input.good()) {
+		input >> numero;
+		if (input.good()) {
+			lista->push_back(numero);
+		}
+	}
+	input.close();
+	ofstream output;
+	output.open("C:\\Users\\USP\\Documents\\GitHub\\Txt\\Location.txt");
+	for (tamanho = lista->size(); tamanho > 0; tamanho--) {
+		output << lista->front()<<" ";
+		lista->pop_front();
+	}
+	output.close();
+	//input.close();
+	//Escreve Arquivo
+	/*
+	ofstream output;
+	output.open("C:\\Users\\USP\\Documents\\GitHub\\Txt\\Location.txt",ios_base::app);
+	output << 123.1 << " " << 124.2 << " " << 125.3<<" ";
+	output.close();
+	*/
+	//Le Arquivo
+	/*
+	ifstream input;
+	input.open ("C:\\Users\\USP\\Documents\\GitHub\\Txt\\Location.txt");
 	input >> numero;
 	input >> numero2;
 	input >> numero3;
@@ -51,5 +103,9 @@ void URWTxtFile::CarregarTexto(FString FileNameE,  FVector&VetorLegal)
 	input.close();
 	*/
 	//Acrescentar Vetor, Carregar o texto inteiro
+}
+
+void URWTxtFile::LerTexto(FString FileNameD, FVector&Lugar)
+{
 
 }
