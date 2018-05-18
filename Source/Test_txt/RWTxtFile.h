@@ -17,7 +17,7 @@ class TEST_TXT_API URWTxtFile : public UBlueprintFunctionLibrary
 
 	GENERATED_BODY() public:
 
-		UFUNCTION(BlueprintPure, Category = "Custom", meta = (Keywords = "LoadTxt"))
+	/*	UFUNCTION(BlueprintPure, Category = "Custom", meta = (Keywords = "LoadTxt"))
 			static bool LoadTxt(FString FileNameA, FString& SaveTextA);
 			
 		UFUNCTION(BlueprintCallable, Category = "Custom", meta = (Keywords = "SaveTxt"))
@@ -28,10 +28,12 @@ class TEST_TXT_API URWTxtFile : public UBlueprintFunctionLibrary
 	
 		UFUNCTION(BlueprintPure, Category = "Custom", meta = (Keywords = "LoadArray"))
 			static bool LoadArray(FString& FileNameD,TArray<uint8> ArrayB);
+	*/
 
-		UFUNCTION(BlueprintPure, Category = "Custom", meta = (Keywords = "CarregarTexto"))
-			static void CarregarTexto(FString FileNameE, FVector&VetorLegal);
-		
 		UFUNCTION(BlueprintPure, Category = "Custom", meta = (Keywords = "LerTexto"))
-			static void LerTexto(FString FileNameD, FVector&Lugar);
+			static void LerTexto(FString FileNameE, FVector&VetorLegal);
+		
+		UFUNCTION(BlueprintPure, Category = "Custom", meta = (Keywords = "EscreverTexto"))
+			static FVector EscreverTexto(FString FileNameD, FVector Lugar);
+		
 };
